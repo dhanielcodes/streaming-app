@@ -21,7 +21,6 @@ DerivedData
 *.ipa
 *.xcuserstate
 ios/.xcode.env.local
-/.yarn
 # Android/IntelliJ
 #
 build/
@@ -36,6 +35,7 @@ local.properties
 
 # node.js
 #
+/.yarn
 node_modules/
 npm-debug.log
 yarn-error.log
