@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, SafeAreaView } from 'react-native';
+import { View, SafeAreaView, KeyboardAvoidingView, ScrollView } from 'react-native';
 import AppText from '../../components/AppText';
 import { colors } from '../../utils/colors';
 import AppButton from '../../components/AppButton';
@@ -13,8 +13,8 @@ export default function LoginPage(): JSX.Element {
     const navigation = useNavigation()
     const [name, setName] = useState()
     return (
-        <View style={{ flex: 1, backgroundColor: colors.dark, paddingTop: phoneHeight * 0.12 / 2 }}>
-            <View style={{ flex: 1 }}>
+        <KeyboardAvoidingView style={{ flex: 1, backgroundColor: colors.dark, paddingTop: phoneHeight * 0.12 / 2 }}>
+            <ScrollView style={{ flex: 1 }}>
                 <View style={{ paddingLeft: 20, paddingRight: 20, flex: 1 }}>
                     <BackIcon onPress={() => {
                         navigation.goBack();
@@ -35,7 +35,8 @@ export default function LoginPage(): JSX.Element {
                         navigation.push('Sign')
                     }}>Sign up.</AppText></AppText>
                 </View>
-            </View>
-        </View>
+            </ScrollView>
+        </KeyboardAvoidingView>
+
     );
 }

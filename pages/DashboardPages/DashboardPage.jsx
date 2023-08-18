@@ -17,7 +17,7 @@ import AppInput from '../../components/AppInput';
 import * as ImagePicker from 'react-native-image-picker';
 import axios from 'axios';
 
-export default function ProfilePage(): JSX.Element {
+export default function DashboardPage(): JSX.Element {
   const navigation = useNavigation();
   const [name, setName] = useState();
 

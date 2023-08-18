@@ -8,6 +8,7 @@ import OnboardThreePage from './pages/OnboardPages/OnboardThreePage';
 import LoginPage from './pages/AuthPages/LoginPage';
 import SignUpPage from './pages/AuthPages/SignUpPage';
 import ProfilePage from './pages/DashboardPages/ProfilePage';
+import DashboardPage from './pages/DashboardPages/DashboardPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,7 @@ export default function App() {
           }} name="Login" component={LoginPage} />
 
           <Stack.Screen name="Profile" component={ProfilePage} />
+          <Stack.Screen name="Dashboard" component={DashboardPage} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
