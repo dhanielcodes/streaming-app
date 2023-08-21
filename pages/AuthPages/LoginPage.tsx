@@ -1,42 +1,44 @@
 import React, { useState } from 'react';
-import { View, SafeAreaView, KeyboardAvoidingView, ScrollView } from 'react-native';
-import AppText from '../../components/AppText';
+import { View, Text, SafeAreaView, KeyboardAvoidingView } from 'react-native';
 import { colors } from '../../utils/colors';
-import AppButton from '../../components/AppButton';
-import { phoneHeight, phoneWidth } from '../../utils/dimensions';
-import { useNavigation } from '@react-navigation/native';
-import BackIcon from '../../assets/icons/backIcon';
+import AuthLayout from '../../layouts/AuthLayout';
+import AppText from '../../components/AppText';
 import AppInput from '../../components/AppInput';
 import AppPasswordInput from '../../components/AppPasswordInput';
+import AppButton from '../../components/AppButton';
+import { phoneHeight } from '../../utils/dimensions';
 
-export default function LoginPage(): JSX.Element {
-    const navigation = useNavigation()
-    const [name, setName] = useState()
-    return (
-        <KeyboardAvoidingView style={{ flex: 1, backgroundColor: colors.dark, paddingTop: phoneHeight * 0.12 / 2 }}>
-            <ScrollView style={{ flex: 1 }}>
-                <View style={{ paddingLeft: 20, paddingRight: 20, flex: 1 }}>
-                    <BackIcon onPress={() => {
-                        navigation.goBack();
-                    }} width={phoneWidth * 0.6 / 20} height={phoneHeight * 0.6 / 20} />
-                    <AppText style={{ fontSize: phoneWidth * 0.18 / 2, fontFamily: 'Inter-Bold', marginTop: 30, marginBottom: 70 }}>Login</AppText>
-                    <AppInput setText={setName} placeholder='Username' />
-                    <AppPasswordInput setText={setName} placeholder='Password' />
-                    <View style={{ marginTop: 30 }}>
-                        <AppButton onPress={() => {
-                            navigation.navigate('Profile')
-                        }}>Sign In</AppButton>
-                    </View>
-                    <AppText style={{ fontSize: phoneWidth * 0.07 / 2, marginTop: 20, marginBottom: 50, textAlign: 'center' }}>Forgot Password</AppText>
+export default function LoginPage({ navigation }): JSX.Element {
+  const [username, setEmail] = useState();
+  const [password, setPassword] = useState();
+  return (
+    <AuthLayout title="Login">
+      <KeyboardAvoidingView style={{
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+      }}>
+        <View>
+          <AppInput setText={setEmail} placeholder="Email" />
+          <AppPasswordInput setText={setPassword} placeholder="Password" />
+          <AppButton onPress={() => {
+            navigation.navigate('Profile')
+          }}>
+            Login
+          </AppButton>
+          <AppText style={{
+            textAlign: 'center',
+            marginTop: phoneHeight * 0.06 / 2
+          }}>Forgot Password</AppText>
+        </View>
+        <AppText style={{
+          textAlign: 'center',
+          marginTop: phoneHeight * 0.64 / 2
 
-                </View>
-                <View style={{ padding: 0 }}>
-                    <AppText style={{ fontSize: phoneWidth * 0.07 / 2, marginTop: 20, marginBottom: 50, textAlign: 'center' }}>Don't have an account? <AppText onPress={() => {
-                        navigation.push('Sign')
-                    }}>Sign up.</AppText></AppText>
-                </View>
-            </ScrollView>
-        </KeyboardAvoidingView>
-
-    );
+        }}>Don’t have an account? <AppText onPress={() => {
+          navigation.navigate('Sign')
+        }}>Sign up</AppText></AppText>
+      </KeyboardAvoidingView>
+    </AuthLayout>
+  );
 }

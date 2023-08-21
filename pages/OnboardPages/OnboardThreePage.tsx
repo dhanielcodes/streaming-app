@@ -20,7 +20,7 @@ export default function OnboardThreePage(): JSX.Element {
                     <AppText style={{ fontSize: phoneWidth * 0.18 / 2, fontFamily: 'Inter-Bold' }}>Let’s go to your favourite event now</AppText>
                     <AppText style={{ fontSize: phoneWidth * 0.09 / 2, opacity: 0.5, marginTop: 20, marginBottom: 50 }}>Stream is here to help you to find the best events based on your interests.</AppText>
                     <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'space-between' }}>
-                        <View style={{ flex: 1, marginRight: 20 }}>
+                        <View style={{ flex: 1, marginRight: 10 }}>
                             <AppButton onPress={() => {
                                 navigation.navigate({ name: 'Login' })
                             }} >Login</AppButton>

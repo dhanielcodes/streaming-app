@@ -8,7 +8,7 @@ import {
   Keyboard,
 } from 'react-native';
 import { colors } from '../utils/colors';
-import { phoneHeight } from '../utils/dimensions';
+import { phoneFontScale, phoneHeight, phoneWidth } from '../utils/dimensions';
 
 export default function AppPasswordInput({ setText, placeholder, style }): JSX.Element {
   const [color, setColor] = useState(colors.dark)
@@ -30,15 +30,19 @@ export default function AppPasswordInput({ setText, placeholder, style }): JSX.E
         }}
         selectTextOnFocus={true}
         style={{
-          padding: (phoneHeight * 0.06) / 2,
+          paddingTop: (phoneHeight * 0.048) / 2,
+          paddingBottom: (phoneHeight * 0.048) / 2,
+          paddingLeft: (phoneWidth * 0.14) / 2,
+          paddingRight: (phoneWidth * 0.14) / 2,
           backgroundColor: colors.darkTwo,
+          fontSize: phoneFontScale * 36 / 2,
           borderRadius: 100,
-          color: '#FFF',
+          color: colors.mainColor,
           borderColor: color,
           borderWidth: 1
         }}
         placeholder={placeholder}
-        placeholderTextColor="#ffffffb4"
+        placeholderTextColor="#ffffff82"
         onChangeText={val => {
           setText(val);
         }}
